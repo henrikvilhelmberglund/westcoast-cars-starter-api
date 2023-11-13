@@ -17,13 +17,6 @@ app.get("/api/", (req, res) => {
   });
 });
 
-app.get("/api/:id", (req, res) => {
-  const vehicle = getVehicle(+req.params.id);
-  res
-    .status(200)
-    .json({ status: 'Success', statusCode: 200, items: vehicles.length, data: vehicles });
-});
-
 app.get('/api/:id', (req, res) => {
   const vehicle = getVehicle(+req.params.id);
   res.status(200).json({ status: 'Success', statusCode: 200, data: vehicle ?? null });
