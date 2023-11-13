@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 
-import { listAllVehicles } from './mock/vehicles.mjs';
+import { getVehicle, listAllVehicles } from './mock/vehicles.mjs';
 
 const app = express();
 
@@ -12,6 +12,11 @@ app.get('/api/', (req, res) => {
   res
     .status(200)
     .json({ status: 'Success', statusCode: 200, items: vehicles.length, data: vehicles });
+});
+
+app.get('/api/:id', (req, res) => {
+  const vehicle = getVehicle(+req.params.id);
+  res.status(200).json({ status: 'Success', statusCode: 200, data: vehicle ?? null });
 });
 
 const port = 3000;

@@ -172,3 +172,7 @@ const VEHICLES = [
 export const listAllVehicles = () => {
   return VEHICLES;
 };
+
+export const getVehicle = (id) => {
+  return VEHICLES.find((v) => v.id === id);
+};
